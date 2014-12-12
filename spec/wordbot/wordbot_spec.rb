@@ -2,19 +2,9 @@ require 'spec_helper'
 
 module Wordbot
   describe Bot do
-    context 'Initialization' do
-      it 'should split a string' do
-        bot = Bot.new 'this is some words'
-        expect(bot.words).to eq [
-          'this',
-          'is',
-          'some',
-          'words'
-        ]
-      end
-
-      it 'should split a string containing punctuation' do
-        bot = Bot.new 'This, is a sentence, containing punctuation. It may be a question?'
+    context 'Split some strings' do
+      it 'should split the simplest string' do
+        expect(Wordbot::Bot.split 'a').to eq ['a']
       end
     end
   end

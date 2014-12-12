@@ -1,9 +1,7 @@
 module Wordbot
   class Bot
-    attr_accessor :words
-    
-    def initialize words
-      @words = words.split
+    def self.split string
+      string.split
     end
   end
 end
