@@ -5,7 +5,7 @@ module Wordbot
     def initialize w
       @content = w
 
-      if m = w.match(/(")(.*)(")/)
+      if m = w.match(/(["']*)([A-Za-z]*)(["'\?]*)/)
         @pre = m[1]
         @content = m[2]
         @post = m[3]
