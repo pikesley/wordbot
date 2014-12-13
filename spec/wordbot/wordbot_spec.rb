@@ -85,7 +85,21 @@ module Wordbot
       end
 
       context 'Splits with random punctuation' do
-        
+        it 'should split "this( h%s d+= \' } fff£33d"' do
+          expect(Wordbot::Bot.split "this( h%s d+= ' } fff£33d").to eq [
+            'this',
+            '( ',
+            'h',
+            '%',
+            's',
+            ' ',
+            'd',
+            "+= ' } ",
+            'fff',
+            '£33',
+            'd'
+          ]
+        end
       end
     end
 
