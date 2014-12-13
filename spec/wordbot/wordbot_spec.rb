@@ -3,35 +3,70 @@ require 'spec_helper'
 module Wordbot
   describe Bot do
     context 'Splitter' do
-      it 'should split "a"' do
-        expect(Wordbot::Bot.split 'a').to eq ['a']
+      context 'Simple splits' do
+        it 'should split "a"' do
+          expect(Wordbot::Bot.split 'a').to eq ['a']
+        end
+
+        it 'should split "a "' do
+          expect(Wordbot::Bot.split 'a ').to eq ['a', ' ']
+        end
+
+        it 'should split "aa bb"' do
+          expect(Wordbot::Bot.split 'aa bb').to eq ['aa', ' ', 'bb']
+        end
       end
 
-      it 'should split "a "' do
-        expect(Wordbot::Bot.split 'a ').to eq ['a', ' ']
+      context 'Splits with punctuation' do
+        it 'should split "aa? bb"' do
+          expect(Wordbot::Bot.split 'aa? bb').to eq ['aa', '? ', 'bb']
+        end
+
+        it 'should split "Hello, this is a thing!"' do
+          expect(Wordbot::Bot.split 'Hello, this is a thing!').to eq [
+            'Hello',
+            ', ',
+            'this',
+            ' ',
+            'is',
+            ' ',
+            'a',
+            ' ',
+            'thing',
+            '!'
+          ]
+        end
       end
 
-      it 'should split "aa bb"' do
-        expect(Wordbot::Bot.split 'aa bb').to eq ['aa', ' ', 'bb']
+      context 'Splits with hyphenation' do
+        it 'should split "This is a hyphenated-word"' do
+          expect(Wordbot::Bot.split 'This is a hyphenated-word').to eq [
+            'This',
+            ' ',
+            'is',
+            ' ',
+            'a',
+            ' ',
+            'hyphenated',
+            '-',
+            'word'
+          ]
+        end
       end
 
-      it 'should split "aa? bb"' do
-        expect(Wordbot::Bot.split 'aa? bb').to eq ['aa', '? ', 'bb']
-      end
-
-      it 'should split "Hello, this is a thing!"' do
-        expect(Wordbot::Bot.split 'Hello, this is a thing!').to eq [
-          'Hello',
-          ', ',
-          'this',
-          ' ',
-          'is',
-          ' ',
-          'a',
-          ' ',
-          'thing',
-          '!'
-        ]
+      context 'Splits with quotes' do
+        it 'should split "This has \'embedded quotes\'"' do
+          expect(Wordbot::Bot.split "This has 'embedded quotes'").to eq [
+            'This',
+            ' ',
+            'has',
+            " '",
+            'embedded',
+            ' ',
+            'quotes',
+            "'"
+          ]
+        end
       end
     end
 

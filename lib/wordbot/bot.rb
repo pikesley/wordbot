@@ -1,12 +1,13 @@
 module Wordbot
   class Bot
     def self.split string
-      compress string.split /([ \?,!])/
+      compress string.split /([ \?,!'-])/
     end
 
     def self.compress list
       a = []
       buffer = ''
+
       list.each do |i|
         if is_word i
           unless buffer == ''
@@ -18,6 +19,7 @@ module Wordbot
           buffer << i
         end
       end
+
       unless buffer == ''
         a.push buffer
       end
