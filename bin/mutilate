@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
-require 'wordbot/cli/mutilate'
-Wordbot::CLI::mutilate.start
+require 'wordbot'
+Wordbot::CLI::Mutilate.start
