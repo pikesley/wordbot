@@ -6,4 +6,5 @@ group :test do
   gem 'rspec'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
 end
