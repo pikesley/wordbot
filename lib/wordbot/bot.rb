@@ -1,7 +1,7 @@
 module Wordbot
   class Bot
     def self.split string
-      compress string.split /([ \?])/
+      compress string.split /([ \?,!])/
     end
 
     def self.compress list
