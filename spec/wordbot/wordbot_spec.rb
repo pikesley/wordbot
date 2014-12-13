@@ -67,6 +67,25 @@ module Wordbot
             "'"
           ]
         end
+
+        it "should split 'How about some \"double-quotes\"" do
+          expect(Wordbot::Bot.split 'How about some "double-quotes"').to eq [
+            'How',
+            ' ',
+            'about',
+            ' ',
+            'some',
+            ' "',
+            'double',
+            '-',
+            'quotes',
+            '"'
+          ]
+        end
+      end
+
+      context 'Splits with random punctuation' do
+        
       end
     end
 
