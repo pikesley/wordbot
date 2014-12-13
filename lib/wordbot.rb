@@ -1,4 +1,6 @@
 require 'thor'
+require 'twitter'
+require 'yaml'
 
 require 'wordbot/bot'
 require 'wordbot/version'
