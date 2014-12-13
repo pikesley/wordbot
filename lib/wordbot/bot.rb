@@ -27,6 +27,19 @@ module Wordbot
       a
     end
 
+    def self.scramble word
+      return word unless is_word word
+      word = word.split ''
+      front = word.shift
+      back = word.pop
+
+      '%s%s%s' % [
+        front,
+        word.shuffle.join(''),
+        back
+      ]
+    end
+
     def self.is_word string
       return false if string == ''
       string.split('').all? { |c| is_letter c }

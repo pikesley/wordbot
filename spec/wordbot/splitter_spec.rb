@@ -119,6 +119,7 @@ module Wordbot
         expect(Wordbot::Bot.is_word 'abc').to eq true
         expect(Wordbot::Bot.is_word 'Sam').to eq true
         expect(Wordbot::Bot.is_word '123').to eq false
+        expect(Wordbot::Bot.is_word 'b22').to eq false
         expect(Wordbot::Bot.is_word '?').to eq false
         expect(Wordbot::Bot.is_word '').to eq false
       end
