@@ -40,6 +40,10 @@ module Wordbot
       ]
     end
 
+    def self.mutilate string
+      split(string).map { |i| scramble i}.join ''
+    end
+
     def self.is_word string
       return false if string == ''
       string.split('').all? { |c| is_letter c }
