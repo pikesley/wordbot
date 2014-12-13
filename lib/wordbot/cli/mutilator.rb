@@ -17,7 +17,13 @@ module Wordbot
 
       desc 'tweet', 'Tweet the mutilated text'
       def tweet *words
-        yaml = YAML.load File.open "#{ENV['HOME']}/.wordbotrc"
+        begin
+          yaml = YAML.load File.open "#{ENV['HOME']}/.wordbotrc"
+        rescue Errno::ENOENT
+          puts "Config file #{ENV['HOME']}/.wordbotrc not found"
+          exit 1
+        end
+
         client = Twitter::REST::Client.new do |config|
           config.consumer_key        = yaml['twitter']['consumer']['key']
           config.consumer_secret     = yaml['twitter']['consumer']['secret']
