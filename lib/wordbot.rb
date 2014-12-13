@@ -2,4 +2,4 @@ require 'thor'
 
 require 'wordbot/bot'
 require 'wordbot/version'
-require 'wordbot/cli/mutilate'
+require 'wordbot/cli/mutilator'

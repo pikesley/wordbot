@@ -1,9 +1,9 @@
 module Wordbot
   module CLI
-    class Mutilate < Thor
+    class Mutilator < Thor
       desc 'version', 'Print the version'
       def version
-        puts "mutilate version %s" % [
+        puts "mutilator version %s" % [
           VERSION
         ]
       end
