@@ -15,6 +15,12 @@ module Wordbot
       end
       map %w(-g --generate) => :generate
 
+      desc 'from_file', 'Generate mutilated text from a file'
+      def from_file filename
+        f = File.read filename
+        puts Wordbot::Bot.mutilate f
+      end
+
       desc 'tweet', 'Tweet the mutilated text'
       def tweet *words
         begin

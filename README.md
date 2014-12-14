@@ -5,3 +5,5 @@
 [![Gem Version](http://img.shields.io/gem/v/wordbot.svg)](https://rubygems.org/gems/wordbot)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://pikesley.mit-license.org)
 [![Badges](http://img.shields.io/:badges-7/7-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
+
+#Wordbot
